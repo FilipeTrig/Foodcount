@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\flipt\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\flipt\\.nuget\\packages"
+    ]
+  }
+}

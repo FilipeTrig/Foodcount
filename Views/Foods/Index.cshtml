@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FoodsModel>;
+
+<h2>Food list</h2>
+
+<div class="container">
+    <div class="row pt-3">
+        <div class="col pt-6">
+
+        </div>
+        <div class="col-6" style="right:-350px">
+            <a asp-controller="Foods" asp-action="Create" class="btn btn-primary mx-2">
+                Add new foods
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    @foreach(var obj in Model)
+    {
+        //build list of foods with buttons to edit each one fo them 
+        <div class="container">
+            <div class="row pt-3">
+                <div class="col pt-6">
+                    @obj.displayName
+                </div>
+                <div class="col pt-6">
+                    <a asp-controller="Foods" asp-route-Name="@obj.Name.ToString()" asp-action="Edit" class="btn btn-primary mx-2">
+                        Edit
+                    </a>
+                    <a asp-controller="Foods" asp-route-Name="@obj.Name.ToString()" asp-action="Delete" class="btn btn-danger mx-2">
+                        Delete
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+    <div></div>
+</div>
