@@ -33,8 +33,5 @@ namespace Foodcount.Controllers
             }
             return View(obj);
         }
-
-
-
     }
 }
