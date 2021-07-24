@@ -11,10 +11,11 @@ namespace Foodcount.Models
         [Key]
         public string Name { get; set; }
         [Required]
-        public string displayName { get; set; }       
-        
+        public string displayName { get; set; }
+
         //Navigation Properties
 
-        public List<Dish_FoodModel> dish_Food { get; set; }
+        //public List<Dish_FoodModel> dish_Food { get; set; }
+        public List<FoodsModel> Incredients { get; set; }
     }
 }

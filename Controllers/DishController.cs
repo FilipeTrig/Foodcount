@@ -28,7 +28,20 @@ namespace Foodcount.Controllers
             if (ModelState.IsValid)
             {
                 _db.Dishes.Add(obj);
-                _db.SaveChanges();
+                _db.SaveChanges();                
+                
+                foreach (var id in obj.Incredients)
+                {
+                    var _dish_food = new Dish_FoodModel()
+                    {
+                        DishId = obj.Name,
+                        Dish = obj,
+                        FoodId = id.Name,
+                        Foods = id
+                    };
+                    _db.Food_Dishes.Add(_dish_food);
+                    _db.SaveChanges();
+                };
                 return RedirectToAction("Index");
             }
             return View(obj);
