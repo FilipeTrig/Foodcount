@@ -1,4 +1,5 @@
 ﻿using Foodcount.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,28 @@ namespace Foodcount.Data
             };
             _db.Food_Dishes.Update(dishFoodModel);
             _db.SaveChanges();
+        }
+
+        public string AddFoodtoDish(string? dish, string? food)
+        {
+            if (dish == null||food == null)
+            {
+                return "NotFound";
+            }
+            var obj_food = _db.Foods.Find(food);
+            var obj_dish = _db.Dishes.Find(dish);
+            if (obj_food == null||obj_dish == null)
+            {
+                return "NotFound";
+            }
+            var _dish = new Dish_FoodModel()
+            {
+                DishId = obj_dish.Name,
+                FoodId = obj_food.Name
+            };
+            _db.Food_Dishes.Update(_dish);
+            _db.SaveChanges();
+            return "Updated";
         }
     }
 }

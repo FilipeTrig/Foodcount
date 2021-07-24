@@ -12,10 +12,12 @@ namespace Foodcount.Models
         public string Name { get; set; }
         [Required]
         public string displayName { get; set; }
+        //add this as a migration
+        public List<FoodsModel> Incredients { get; set; }
 
         //Navigation Properties
 
-        //public List<Dish_FoodModel> dish_Food { get; set; }
-        public List<FoodsModel> Incredients { get; set; }
+        public List<Dish_FoodModel> dish_Food { get; set; }
+        
     }
 }
